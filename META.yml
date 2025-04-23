@@ -29,6 +29,7 @@ requires:
   MARC::Field008: 0
   MARC::Leader: 0.04
   Mo::utils: 0.06
+  Mo::utils::Hash: 0
   Module::Pluggable: 0
   perl: 5.6.2
 resources:

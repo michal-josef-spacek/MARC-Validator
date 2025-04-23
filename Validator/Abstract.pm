@@ -7,6 +7,7 @@ use Class::Utils qw(set_params);
 use DateTime;
 use Error::Pure qw(err);
 use Mo::utils 0.06 qw(check_bool);
+use Mo::utils::Hash qw(check_hash);
 
 our $VERSION = 0.01;
 
@@ -33,7 +34,7 @@ sub new {
 	check_bool($self, 'debug');
 
 	# Check 'struct'.
-	# TODO
+	check_hash($self, 'struct');
 
 	# Check 'verbose'.
 	check_bool($self, 'verbose');

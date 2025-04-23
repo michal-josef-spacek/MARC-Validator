@@ -25,6 +25,7 @@ requires 'Error::Pure' => 0;
 requires 'MARC::Field008' => 0;
 requires 'MARC::Leader' => 0.04;
 requires 'Mo::utils' => 0.06;
+requires 'Mo::utils::Hash' => 0;
 requires 'Module::Pluggable' => 0;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/MARC-Validator/issues',
 resources 'homepage' => 'https://github.com/michal-josef-spacek/MARC-Validator';
