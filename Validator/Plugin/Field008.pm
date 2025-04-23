@@ -48,7 +48,7 @@ sub process {
 	# Parsing of field 008 is valid, other checks.
 	} else {
 		# XXX Check
-		if ($field_008->type_of_date ne 's' && $field_008->date1 eq $field_008->date2) {
+		if ($field_008->type_of_date eq 's' && $field_008->date1 eq $field_008->date2) {
 			$struct_hr->{'not_valid'}->{$cnb} = {
 				'error' => 'Field 008 date 1 is same as date 2',
 			};
