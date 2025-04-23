@@ -17,8 +17,10 @@ META.yml
 README
 t/MARC-Validator-Abstract/01-use.t
 t/MARC-Validator-Abstract/02-version.t
+t/MARC-Validator-Abstract/03-new.t
 t/MARC-Validator-Plugin-Field008/01-use.t
 t/MARC-Validator-Plugin-Field008/02-version.t
+t/MARC-Validator-Plugin-Field008/03-new.t
 t/MARC-Validator/01-use.t
 t/MARC-Validator/02-version.t
 Validator.pm
