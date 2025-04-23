@@ -38,7 +38,7 @@ is_deeply(
 # Test.
 $obj = MARC::Validator::Plugin::Field008->new;
 $obj->init;
-my $marc_record = MARC::File::XML->in($data_dir->file('cnb001920818.xml')->s)->next;
+my $marc_record = MARC::File::XML->in($data_dir->file('cnb001920818-incorrect_field_008_syntax.xml')->s)->next;
 $obj->process($marc_record);
 $ret = $obj->struct;
 is_deeply(
