@@ -25,6 +25,7 @@ sub process {
 		'verbose' => $self->{'verbose'},
 	)->parse($leader_string);
 
+	my $cnb = $marc_record->field('015')->subfield('a');
 	my $field_008_string = $marc_record->field('008')->as_string;
 	my $field_008 = eval {
 		MARC::Field008->new(
@@ -33,7 +34,6 @@ sub process {
 		)->parse($field_008_string);
 	};
 	if ($EVAL_ERROR) {
-		my $cnb = $marc_record->field('015')->subfield('a');
 		my $err = $EVAL_ERROR;
 		chomp $err;
 		my $err_msg_hr = err_msg_hr();
