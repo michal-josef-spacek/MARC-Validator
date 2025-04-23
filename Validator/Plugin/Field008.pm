@@ -37,7 +37,7 @@ sub process {
 		my $err = $EVAL_ERROR;
 		chomp $err;
 		my $err_msg_hr = err_msg_hr();
-		$self->{'struct'}->{'stats'}->{'not_valid'}->{$cnb} = {
+		$self->{'struct'}->{'field_008'}->{'not_valid'}->{$cnb} = {
 			'error' => $err,
 			'params' => $err_msg_hr,
 		};
@@ -52,7 +52,7 @@ sub _init {
 	$self->{'struct'}->{'module_name'} = __PACKAGE__;
 	$self->{'struct'}->{'module_version'} = $VERSION;
 
-	$self->{'struct'}->{'stats'}->{'not_valid'} = {};
+	$self->{'struct'}->{'field_008'}->{'not_valid'} = {};
 
 	return;
 }
