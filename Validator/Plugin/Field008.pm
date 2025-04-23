@@ -26,6 +26,7 @@ sub process {
 	)->parse($leader_string);
 
 	my $cnb = $marc_record->field('015')->subfield('a');
+
 	my $field_008_string = $marc_record->field('008')->as_string;
 	my $field_008 = eval {
 		MARC::Field008->new(
@@ -40,6 +41,13 @@ sub process {
 		$self->{'struct'}->{'field_008'}->{'not_valid'}->{$cnb} = {
 			'error' => $err,
 			'params' => $err_msg_hr,
+		};
+	}
+
+	# XXX Check
+	if ($field_008->type_of_date ne 's' && $field_008->date1 eq $field_008->date2) {
+		$self->{'struct'}->{'field_008'}->{'not_valid'}->{$cnb} = {
+			'error' => 'Field 008 date 1 is same as date 2',
 		};
 	}
 
