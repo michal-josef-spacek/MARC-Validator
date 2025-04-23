@@ -20,6 +20,8 @@ sub name {
 sub process {
 	my ($self, $marc_record) = @_;
 
+	my $struct_hr = $self->{'struct'}->{'checks'};
+
 	my $leader_string = $marc_record->leader;
 	my $leader = MARC::Leader->new(
 		'verbose' => $self->{'verbose'},
@@ -38,17 +40,19 @@ sub process {
 		my $err = $EVAL_ERROR;
 		chomp $err;
 		my $err_msg_hr = err_msg_hr();
-		$self->{'struct'}->{'field_008'}->{'not_valid'}->{$cnb} = {
+		$struct_hr->{'not_valid'}->{$cnb} = {
 			'error' => $err,
 			'params' => $err_msg_hr,
 		};
-	}
 
-	# XXX Check
-	if ($field_008->type_of_date ne 's' && $field_008->date1 eq $field_008->date2) {
-		$self->{'struct'}->{'field_008'}->{'not_valid'}->{$cnb} = {
-			'error' => 'Field 008 date 1 is same as date 2',
-		};
+	# Parsing of field 008 is valid, other checks.
+	} else {
+		# XXX Check
+		if ($field_008->type_of_date ne 's' && $field_008->date1 eq $field_008->date2) {
+			$struct_hr->{'not_valid'}->{$cnb} = {
+				'error' => 'Field 008 date 1 is same as date 2',
+			};
+		}
 	}
 
 	return;
@@ -60,7 +64,7 @@ sub _init {
 	$self->{'struct'}->{'module_name'} = __PACKAGE__;
 	$self->{'struct'}->{'module_version'} = $VERSION;
 
-	$self->{'struct'}->{'field_008'}->{'not_valid'} = {};
+	$self->{'struct'}->{'checks'}->{'not_valid'} = {};
 
 	return;
 }
