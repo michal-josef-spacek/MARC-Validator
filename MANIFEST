@@ -33,6 +33,8 @@ t/MARC-Validator-Plugin-Field260/05-struct.t
 t/MARC-Validator-Plugin-Field264/01-use.t
 t/MARC-Validator-Plugin-Field264/02-version.t
 t/MARC-Validator-Plugin-Field264/03-new.t
+t/MARC-Validator-Utils/01-use.t
+t/MARC-Validator-Utils/02-version.t
 t/MARC-Validator/01-use.t
 t/MARC-Validator/02-version.t
 Validator.pm
@@ -40,6 +42,7 @@ Validator/Abstract.pm
 Validator/Plugin/Field008.pm
 Validator/Plugin/Field260.pm
 Validator/Plugin/Field264.pm
+Validator/Utils.pm
 xt/MARC-Validator-Abstract/01-pod_coverage.t
 xt/MARC-Validator-Abstract/02-pod.t
 xt/MARC-Validator-Plugin-Field008/01-pod_coverage.t
@@ -48,5 +51,7 @@ xt/MARC-Validator-Plugin-Field260/01-pod_coverage.t
 xt/MARC-Validator-Plugin-Field260/02-pod.t
 xt/MARC-Validator-Plugin-Field264/01-pod_coverage.t
 xt/MARC-Validator-Plugin-Field264/02-pod.t
+xt/MARC-Validator-Utils/01-pod_coverage.t
+xt/MARC-Validator-Utils/02-pod.t
 xt/MARC-Validator/01-pod_coverage.t
 xt/MARC-Validator/02-pod.t
