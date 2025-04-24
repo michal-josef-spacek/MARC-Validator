@@ -25,7 +25,7 @@ sub process {
 		foreach my $field_260_c (@field_260_c) {
 			if ($field_260_c =~ m/^\(\d+\)$/ms) {
 				$struct_hr->{'not_valid'}->{$cnb} = {
-					'error' => 'Bad parenthesis in MARC field 260 $c.',
+					'error' => 'Bad year in parenthesis in MARC field 260 $c.',
 					'params' => {
 						'Value' => $field_260_c,
 					},
