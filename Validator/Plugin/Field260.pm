@@ -4,6 +4,8 @@ use base qw(MARC::Validator::Abstract);
 use strict;
 use warnings;
 
+use MARC::Validator::Utils qw(check_260c_year);
+
 our $VERSION = 0.01;
 
 sub name {
@@ -23,14 +25,7 @@ sub process {
 	foreach my $field_260 (@field_260) {
 		my @field_260_c = $field_260->subfield('c');
 		foreach my $field_260_c (@field_260_c) {
-			if ($field_260_c =~ m/^\(\d+\)$/ms) {
-				$struct_hr->{'not_valid'}->{$cnb} = {
-					'error' => 'Bad year in parenthesis in MARC field 260 $c.',
-					'params' => {
-						'Value' => $field_260_c,
-					},
-				};
-			}
+			check_260c_year($self, $field_260_c, $struct_hr, $cnb, '260');
 		}
 	}
 
