@@ -16,7 +16,7 @@ MANIFEST			This list of files
 META.yml
 README
 t/data/cnb001880327-incorrect_260c.xml
-t/data/cnb001920818-incorrect_field_008_syntax.xml
+t/data/cnb001920818-incorrect_field_008_syntax_quote_mark.xml
 t/MARC-Validator-Abstract/01-use.t
 t/MARC-Validator-Abstract/02-version.t
 t/MARC-Validator-Abstract/03-new.t

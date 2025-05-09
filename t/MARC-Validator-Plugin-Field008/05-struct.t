@@ -38,17 +38,16 @@ is_deeply(
 # Test.
 $obj = MARC::Validator::Plugin::Field008->new;
 $obj->init;
-my $marc_record = MARC::File::XML->in($data_dir->file('cnb001920818-incorrect_field_008_syntax.xml')->s)->next;
+my $marc_record = MARC::File::XML->in($data_dir->file('cnb001920818-incorrect_field_008_syntax_quote_mark.xml')->s)->next;
 $obj->process($marc_record);
 $ret = $obj->struct;
 is_deeply(
 	$ret->{'checks'}->{'not_valid'},
 	{
 		'cnb001920818' => {
-			'error' => "Parameter 'date1' does not match the specified regular expression.",
+			'error' => "Parameter 'date1' has bad value.",
 			'params' => {
-				'Regexp' => '^([\ u\d]+|\|{4})$',
-				'String' => '197?',
+				'Value' => '197?',
 			},
 		},
 	},
