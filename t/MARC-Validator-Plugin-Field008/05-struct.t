@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field008;
-use Test::More 'tests' => 8;
+use Test::More 'tests' => 9;
 use Test::NoWarnings;
 
 # Data dir.
@@ -51,5 +51,24 @@ is_deeply(
 			},
 		},
 	},
-	'Get struct - checks (field 008 is syntactically incorrect).',
+	'Get struct - checks (field 008 is syntactically incorrect - >197?<).',
+);
+
+# Test.
+$obj = MARC::Validator::Plugin::Field008->new;
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb000295209-incorrect_field_008_syntax_space.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->struct;
+is_deeply(
+	$ret->{'checks'}->{'not_valid'},
+	{
+		'cnb000295209' => {
+			'error' => "Parameter 'date1' has value with space character.",
+			'params' => {
+				'Value' => '189 ',
+			},
+		},
+	},
+	'Get struct - checks (field 008 is syntactically incorrect - >189 <).',
 );
