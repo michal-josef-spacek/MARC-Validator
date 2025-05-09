@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field008;
-use Test::More 'tests' => 9;
+use Test::More 'tests' => 10;
 use Test::NoWarnings;
 
 # Data dir.
@@ -71,4 +71,23 @@ is_deeply(
 		},
 	},
 	'Get struct - checks (field 008 is syntactically incorrect - >189 <).',
+);
+
+# Test.
+$obj = MARC::Validator::Plugin::Field008->new;
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb001873805-incorrect_field_008_content-blank.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->struct;
+is_deeply(
+	$ret->{'checks'}->{'not_valid'},
+	{
+		'cnb001873805' => {
+			'error' => "Field 008 date 1 need to be fill.",
+			'params' => {
+				'Value' => '080921s        xr     g       ||        ',
+			},
+		},
+	},
+	'Get struct - checks (field 008 has blank date 1 - >    <).',
 );
