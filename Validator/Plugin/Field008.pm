@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 use English;
-use Error::Pure::Utils qw(err_msg_hr);
+use Error::Pure::Utils qw(err_get);
 use MARC::Leader;
 use MARC::Field008;
 
@@ -39,30 +39,34 @@ sub process {
 	if ($EVAL_ERROR) {
 		my $err = $EVAL_ERROR;
 		chomp $err;
-		my $err_msg_hr = err_msg_hr();
-		$struct_hr->{'not_valid'}->{$cnb} = {
-			'error' => $err,
-			'params' => $err_msg_hr,
-		};
+		my @errors = err_get();
+		$struct_hr->{'not_valid'}->{$cnb} = [];
+		foreach my $error (@errors) {
+			my %err_params = @{$error->{'msg'}}[1 .. $#{$error->{'msg'}}];
+			push @{$struct_hr->{'not_valid'}->{$cnb}}, {
+				'error' => $error->{'msg'}->[0],
+				'params' => \%err_params,
+			};
+		}
 
 	# Parsing of field 008 is valid, other checks.
 	} else {
 		if ($field_008->type_of_date eq 's') {
 			if ($field_008->date1 eq '    ') {
-				$struct_hr->{'not_valid'}->{$cnb} = {
+				$struct_hr->{'not_valid'}->{$cnb} = [{
 					'error' => 'Field 008 date 1 need to be fill.',
 					'params' => {
 						'Value', $field_008_string,
 					},
-				};
+				}];
 			} else {
 				if ($field_008->date1 eq $field_008->date2) {
-					$struct_hr->{'not_valid'}->{$cnb} = {
+					$struct_hr->{'not_valid'}->{$cnb} = [{
 						'error' => 'Field 008 date 1 is same as date 2.',
 						'params' => {
 							'Value', $field_008_string,
 						},
-					};
+					}];
 				}
 			}
 		}

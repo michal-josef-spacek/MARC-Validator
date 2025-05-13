@@ -14,7 +14,10 @@ sub check_260c_year {
 	my ($self, $value, $struct_hr, $cnb, $field) = @_;
 
 	if ($value =~ m/^\(\d+\)$/ms) {
-		$struct_hr->{'not_valid'}->{$cnb} = {
+		if (! exists $struct_hr->{'not_valid'}->{$cnb}) {
+			$struct_hr->{'not_valid'}->{$cnb} = [];
+		}
+		push @{$struct_hr->{'not_valid'}->{$cnb}}, {
 			'error' => 'Bad year in parenthesis in MARC field '.$field.' $c.',
 			'params' => {
 				'Value' => $value,
