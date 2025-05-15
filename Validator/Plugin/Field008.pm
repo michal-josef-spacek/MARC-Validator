@@ -39,7 +39,7 @@ sub process {
 	if ($EVAL_ERROR) {
 		my $err = $EVAL_ERROR;
 		chomp $err;
-		my @errors = err_get();
+		my @errors = err_get(1);
 		$struct_hr->{'not_valid'}->{$cnb} = [];
 		foreach my $error (@errors) {
 			my %err_params = @{$error->{'msg'}}[1 .. $#{$error->{'msg'}}];
