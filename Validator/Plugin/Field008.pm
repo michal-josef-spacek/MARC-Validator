@@ -37,8 +37,6 @@ sub process {
 		)->parse($field_008_string);
 	};
 	if ($EVAL_ERROR) {
-		my $err = $EVAL_ERROR;
-		chomp $err;
 		my @errors = err_get(1);
 		$struct_hr->{'not_valid'}->{$cnb} = [];
 		foreach my $error (@errors) {
