@@ -412,7 +412,8 @@ Returns reference to hash.
 L<Class::Utils>,
 L<DateTime>,
 L<Error::Pure>,
-L<Mo::utils>.
+L<Mo::utils>,
+L<Mo::utils::Hash>.
 
 =head1 REPOSITORY
 
