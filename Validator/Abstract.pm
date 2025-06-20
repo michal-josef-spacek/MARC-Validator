@@ -102,7 +102,7 @@ MARC::Validator::Abstract - Abstract class for MARC::Validator plugins.
 
 =head1 SYNOPSIS
 
- my $obj = MARC::Validator::Plugin::Foo->new;
+ my $obj = MARC::Validator::Abstract->new;
  $obj->init;
  my $name = $obj->name;
  my $process = $obj->process($marc_record);
