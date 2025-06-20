@@ -22,6 +22,7 @@ meta-spec:
 name: MARC-Validator
 no_index:
   directory:
+    - examples
     - inc
     - t
     - xt

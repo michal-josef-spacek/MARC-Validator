@@ -405,7 +405,18 @@ Returns reference to hash.
  unlink $temp_file;
 
  # Output:
- # TODO
+ # Name: foo
+ # Output structure:
+ # {
+ #     datetime         "2025-06-20T17:13:25" (dualvar: 2025),
+ #     module_name      "MARC::Validator::Plugin::Foo",
+ #     module_version   1.01,
+ #     name             "foo",
+ #     stats            {
+ #         bar_stat   2,
+ #         foo_stat   1
+ #     }
+ # }
 
 =head1 DEPENDENCIES
 
