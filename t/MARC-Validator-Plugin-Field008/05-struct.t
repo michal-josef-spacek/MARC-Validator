@@ -44,12 +44,12 @@ $ret = $obj->struct;
 is_deeply(
 	$ret->{'checks'}->{'not_valid'},
 	{
-		'cnb001920818' => {
+		'cnb001920818' => [{
 			'error' => "Parameter 'date1' has bad value.",
 			'params' => {
 				'Value' => '197?',
 			},
-		},
+		}],
 	},
 	'Get struct - checks (field 008 is syntactically incorrect - >197?<).',
 );
@@ -63,12 +63,12 @@ $ret = $obj->struct;
 is_deeply(
 	$ret->{'checks'}->{'not_valid'},
 	{
-		'cnb000295209' => {
+		'cnb000295209' => [{
 			'error' => "Parameter 'date1' has value with space character.",
 			'params' => {
 				'Value' => '189 ',
 			},
-		},
+		}],
 	},
 	'Get struct - checks (field 008 is syntactically incorrect - >189 <).',
 );
@@ -82,12 +82,12 @@ $ret = $obj->struct;
 is_deeply(
 	$ret->{'checks'}->{'not_valid'},
 	{
-		'cnb001873805' => {
+		'cnb001873805' => [{
 			'error' => "Field 008 date 1 need to be fill.",
 			'params' => {
-				'Value' => '080921s        xr     g       ||        ',
+				'Value' => '080921s        xr ||| g       nn        ',
 			},
-		},
+		}],
 	},
 	'Get struct - checks (field 008 has blank date 1 - >    <).',
 );

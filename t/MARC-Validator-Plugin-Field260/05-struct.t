@@ -44,12 +44,12 @@ $ret = $obj->struct;
 is_deeply(
 	$ret->{'checks'}->{'not_valid'},
 	{
-		'cnb001880327' => {
+		'cnb001880327' => [{
 			'error' => 'Bad year in parenthesis in MARC field 260 $c.',
 			'params' => {
 				'Value' => '(1861)',
 			},
-		},
+		}],
 	},
 	'Get struct - checks (field 260 $c has year in parenthesis).',
 );

@@ -10,7 +10,7 @@
   <controlfield tag="003">CZ PrNK</controlfield>
   <controlfield tag="005">20090417223033.0</controlfield>
   <controlfield tag="007">qu</controlfield>
-  <controlfield tag="008">080921s        xr     g       ||        </controlfield>
+  <controlfield tag="008">080921s        xr ||| g       nn        </controlfield>
   <datafield tag="015" ind1=" " ind2=" ">
     <subfield code="a">cnb001873805</subfield>
   </datafield>
