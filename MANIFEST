@@ -1,5 +1,6 @@
 Changes
 examples/example_plugin.pl
+examples/plugins_list.pl
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm
 inc/Module/Install/AuthorTests.pm
