@@ -41,6 +41,7 @@ t/MARC-Validator-Utils/01-use.t
 t/MARC-Validator-Utils/02-version.t
 t/MARC-Validator/01-use.t
 t/MARC-Validator/02-version.t
+t/MARC-Validator/03-plugins.t
 Validator.pm
 Validator/Abstract.pm
 Validator/Plugin/Field008.pm
