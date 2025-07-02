@@ -39,6 +39,7 @@ t/MARC-Validator-Plugin-Field264/02-version.t
 t/MARC-Validator-Plugin-Field264/03-new.t
 t/MARC-Validator-Utils/01-use.t
 t/MARC-Validator-Utils/02-version.t
+t/MARC-Validator-Utils/03-check_260c_year.t
 t/MARC-Validator/01-use.t
 t/MARC-Validator/02-version.t
 t/MARC-Validator/03-plugins.t
