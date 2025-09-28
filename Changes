@@ -1,4 +1,4 @@
-0.02
+0.02 2025-09-28T09:09:10+02:00
  - Add add_error() helper function.
  - Add validation for field 020a ISBN.
  - Regen doc EXAMPLE.
