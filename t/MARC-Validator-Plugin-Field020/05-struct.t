@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field020;
-use Test::More 'tests' => 11;
+use Test::More 'tests' => 12;
 use Test::NoWarnings;
 
 # Data dir.
@@ -109,4 +109,16 @@ is_deeply(
 		}],
 	},
 	'Get struct - checks (field 008 ISBN is bad - >bad<).',
+);
+
+# Test.
+$obj = MARC::Validator::Plugin::Field020->new;
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb000000168-correct_field_020a_isbn_not_present.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->struct;
+is_deeply(
+	$ret->{'checks'}->{'not_valid'},
+	{},
+	'Get struct - checks (no issue with field 008).',
 );

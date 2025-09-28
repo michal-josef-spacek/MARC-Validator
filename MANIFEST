@@ -18,6 +18,7 @@ MANIFEST			This list of files
 META.yml
 README
 SIGNATURE
+t/data/cnb000000168-correct_field_020a_isbn_not_present.xml
 t/data/cnb000295209-incorrect_field_008_syntax_space.xml
 t/data/cnb001410157-incorrect_field_020a_isbn_with_extra_characters.xml
 t/data/cnb001873805-incorrect_field_008_content-blank.xml
