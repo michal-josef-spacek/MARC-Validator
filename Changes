@@ -1,4 +1,5 @@
 0.02
+ - Add add_error() helper function.
 
 0.01 2025-07-02T21:32:38+02:00
  - First version.
