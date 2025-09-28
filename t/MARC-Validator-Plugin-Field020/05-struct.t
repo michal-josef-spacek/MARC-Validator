@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field020;
-use Test::More 'tests' => 10;
+use Test::More 'tests' => 11;
 use Test::NoWarnings;
 
 # Data dir.
@@ -90,4 +90,23 @@ is_deeply(
 		}],
 	},
 	'Get struct - checks (field 008 ISBN has extra characters - >80-902905-0-7 :<).',
+);
+
+# Test.
+$obj = MARC::Validator::Plugin::Field020->new;
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('fake1-incorrect_field_020a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->struct;
+is_deeply(
+	$ret->{'checks'}->{'not_valid'},
+	{
+		'fake1' => [{
+			'error' => "Bad ISBN in 020a field.",
+			'params' => {
+				'Value' => 'bad',
+			},
+		}],
+	},
+	'Get struct - checks (field 008 ISBN is bad - >bad<).',
 );
