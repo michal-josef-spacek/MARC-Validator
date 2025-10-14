@@ -428,7 +428,7 @@ L<Mo::utils::Hash>.
 
 =head1 REPOSITORY
 
-L<https://github.com/michal-josef-spacek/MARC-Collection-Stats>
+L<https://github.com/michal-josef-spacek/MARC-Validator>
 
 =head1 AUTHOR
 
