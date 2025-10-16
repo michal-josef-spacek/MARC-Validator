@@ -30,6 +30,7 @@ sub process {
 	my $desc_conventions = $marc_record->field('040')->subfield('e');
 
 	if ($leader->descriptive_cataloging_form eq 'a'
+		&& defined $desc_conventions
 		&& $desc_conventions eq 'rda') {
 
 		add_error($cnb, $struct_hr, {
