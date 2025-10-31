@@ -22,12 +22,26 @@ sub process {
 
 	my $struct_hr = $self->{'struct'}->{'checks'};
 
-	my $leader_string = $marc_record->leader;
-	my $leader = MARC::Leader->new(
-		'verbose' => $self->{'verbose'},
-	)->parse($leader_string);
-
 	my $error_id = $self->{'cb_error_id'}->($marc_record);
+
+	my $leader_string = $marc_record->leader;
+	my $leader = eval {
+		MARC::Leader->new(
+			'verbose' => $self->{'verbose'},
+		)->parse($leader_string);
+	};
+	if ($EVAL_ERROR) {
+		my @errors = err_get(1);
+		$struct_hr->{'not_valid'}->{$error_id} = [];
+		foreach my $error (@errors) {
+			my %err_params = @{$error->{'msg'}}[1 .. $#{$error->{'msg'}}];
+			push @{$struct_hr->{'not_valid'}->{$error_id}}, {
+				'error' => $error->{'msg'}->[0],
+				'params' => \%err_params,
+			};
+		}
+		return;
+	}
 
 	my $field_008_obj = $marc_record->field('008');
 	if (! defined $field_008_obj) {
