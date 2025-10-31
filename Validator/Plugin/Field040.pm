@@ -4,6 +4,8 @@ use base qw(MARC::Validator::Abstract);
 use strict;
 use warnings;
 
+use English;
+use Error::Pure::Utils qw(err_get);
 use MARC::Leader;
 use MARC::Validator::Utils qw(add_error);
 
@@ -23,9 +25,23 @@ sub process {
 	my $error_id = $self->{'cb_error_id'}->($marc_record);
 
 	my $leader_string = $marc_record->leader;
-	my $leader = MARC::Leader->new(
-		'verbose' => $self->{'verbose'},
-	)->parse($leader_string);
+	my $leader = eval {
+		MARC::Leader->new(
+			'verbose' => $self->{'verbose'},
+		)->parse($leader_string);
+	};
+	if ($EVAL_ERROR) {
+		my @errors = err_get(1);
+		$struct_hr->{'not_valid'}->{$error_id} = [];
+		foreach my $error (@errors) {
+			my %err_params = @{$error->{'msg'}}[1 .. $#{$error->{'msg'}}];
+			push @{$struct_hr->{'not_valid'}->{$error_id}}, {
+				'error' => $error->{'msg'}->[0],
+				'params' => \%err_params,
+			};
+		}
+		return;
+	}
 
 	my $field_040 = $marc_record->field('040');
 	if (! defined $field_040) {
