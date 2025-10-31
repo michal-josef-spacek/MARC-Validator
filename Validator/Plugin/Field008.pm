@@ -27,7 +27,7 @@ sub process {
 		'verbose' => $self->{'verbose'},
 	)->parse($leader_string);
 
-	my $cnb = $marc_record->field('015')->subfield('a');
+	my $error_id = $self->{'cb_error_id'}->($marc_record);
 
 	my $field_008_string = $marc_record->field('008')->as_string;
 	my $field_008 = eval {
@@ -38,10 +38,10 @@ sub process {
 	};
 	if ($EVAL_ERROR) {
 		my @errors = err_get(1);
-		$struct_hr->{'not_valid'}->{$cnb} = [];
+		$struct_hr->{'not_valid'}->{$error_id} = [];
 		foreach my $error (@errors) {
 			my %err_params = @{$error->{'msg'}}[1 .. $#{$error->{'msg'}}];
-			push @{$struct_hr->{'not_valid'}->{$cnb}}, {
+			push @{$struct_hr->{'not_valid'}->{$error_id}}, {
 				'error' => $error->{'msg'}->[0],
 				'params' => \%err_params,
 			};
@@ -51,7 +51,7 @@ sub process {
 	} else {
 		if ($field_008->type_of_date eq 's') {
 			if ($field_008->date1 eq '    ') {
-				$struct_hr->{'not_valid'}->{$cnb} = [{
+				$struct_hr->{'not_valid'}->{$error_id} = [{
 					'error' => 'Field 008 date 1 need to be fill.',
 					'params' => {
 						'Value', $field_008_string,
@@ -59,7 +59,7 @@ sub process {
 				}];
 			} else {
 				if ($field_008->date1 eq $field_008->date2) {
-					$struct_hr->{'not_valid'}->{$cnb} = [{
+					$struct_hr->{'not_valid'}->{$error_id} = [{
 						'error' => 'Field 008 date 1 is same as date 2.',
 						'params' => {
 							'Value', $field_008_string,

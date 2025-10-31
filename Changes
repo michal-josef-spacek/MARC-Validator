@@ -1,4 +1,6 @@
 0.06
+ - Rewrite identification of record id for reporting. Default value is control
+   field 001. We could change it by definition of 'error_id_def' parameter.
 
 0.05 2025-10-30T08:35:46+01:00
  - Fix REPOSITORY section in doc.

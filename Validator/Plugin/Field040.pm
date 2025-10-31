@@ -20,7 +20,7 @@ sub process {
 
 	my $struct_hr = $self->{'struct'}->{'checks'};
 
-	my $cnb = $marc_record->field('015')->subfield('a');
+	my $error_id = $self->{'cb_error_id'}->($marc_record);
 
 	my $leader_string = $marc_record->leader;
 	my $leader = MARC::Leader->new(
@@ -33,7 +33,7 @@ sub process {
 		&& defined $desc_conventions
 		&& $desc_conventions eq 'rda') {
 
-		add_error($cnb, $struct_hr, {
+		add_error($error_id, $struct_hr, {
 			'error' => 'Leader descriptive cataloging form (a) is inconsistent with field 040e description conventions (rda).',
 		});
 	}
