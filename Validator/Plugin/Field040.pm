@@ -27,7 +27,14 @@ sub process {
 		'verbose' => $self->{'verbose'},
 	)->parse($leader_string);
 
-	my $desc_conventions = $marc_record->field('040')->subfield('e');
+	my $field_040 = $marc_record->field('040');
+	if (! defined $field_040) {
+		add_error($error_id, $struct_hr, {
+			'error' => "Field 040 isn't present.",
+		});
+		return;
+	}
+	my $desc_conventions = $field_040->subfield('e');
 
 	if ($leader->descriptive_cataloging_form eq 'a'
 		&& defined $desc_conventions
