@@ -1,4 +1,5 @@
 0.06
+ - Fix field 008 presence.
  - Fix field 040e presence.
  - Rewrite identification of record id for reporting. Default value is control
    field 001. We could change it by definition of 'error_id_def' parameter.
