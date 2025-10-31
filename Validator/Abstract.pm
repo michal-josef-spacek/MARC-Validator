@@ -230,6 +230,8 @@ Returns reference to hash.
                          Value: %s
                  Parameter 'verbose' must be a bool (0/1).
                          Value: %s
+         Record id is not defined.
+                 Error ID definition: %s
 
          (only in this abstract class)
          MARC::Validator::Abstract is abstract class.
