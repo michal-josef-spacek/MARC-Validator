@@ -7,7 +7,7 @@ use warnings;
 use English;
 use MARC::Validator::Utils qw(add_error);
 
-our $VERSION = 0.07;
+our $VERSION = 0.08;
 
 sub name {
 	my $self = shift;
