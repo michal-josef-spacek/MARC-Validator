@@ -1,4 +1,4 @@
-0.07
+0.07 2025-11-14T15:39:34+01:00
  - Add ACKNOWLEDGEMENTS section to doc.
  - Add plugin for 035 field to check unique 035a.
  - Fix ERRORS section in Abstract class doc.
