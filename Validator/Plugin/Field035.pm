@@ -31,6 +31,13 @@ sub process {
 
 		if (! exists $self->{'struct'}->{'ids'}->{$value}) {
 			$self->{'struct'}->{'ids'}->{$value} = $error_id;
+		} elsif ($self->{'struct'}->{'ids'}->{$value} eq $error_id) {
+			add_error($error_id, $struct_hr, {
+				'error' => 'Duplicate system control number in 035a field.',
+				'params' => {
+					'value' => $value,
+				},
+			});
 		} else {
 			add_error($error_id, $struct_hr, {
 				'error' => 'Bad system control number in 035a field.',
