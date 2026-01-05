@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field008;
-use Test::More 'tests' => 10;
+use Test::More 'tests' => 11;
 use Test::NoWarnings;
 
 # Data dir.
@@ -96,4 +96,25 @@ is_deeply(
 		}],
 	},
 	'Get struct - checks (field 008 has blank date 1 - >    <).',
+);
+
+# Test.
+$obj = MARC::Validator::Plugin::Field008->new(
+	'error_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb001696044-bad_date2_in_currently_published.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->struct;
+is_deeply(
+	$ret->{'checks'}->{'not_valid'},
+	{
+		'cnb001696044' => [{
+			'error' => "Field 008 date 2 need to be 9999, it's currently published.",
+			'params' => {
+				'Value' => '061102c19972002xr  x w s     0   b2cze  ',
+			},
+		}],
+	},
+	'Get struct - checks (field 008 has bad date 2 - >2002<).',
 );

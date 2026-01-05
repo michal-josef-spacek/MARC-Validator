@@ -89,6 +89,17 @@ sub process {
 				}
 			}
 		}
+
+		if ($field_008->type_of_date eq 'c') {
+			if ($field_008->date2 ne '9999') {
+				$struct_hr->{'not_valid'}->{$error_id} = [{
+					'error' => 'Field 008 date 2 need to be 9999, it\'s currently published.',
+					'params' => {
+						'Value', $field_008_string,
+					},
+				}];
+			}
+		}
 	}
 
 	return;
