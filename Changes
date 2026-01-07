@@ -1,5 +1,6 @@
 0.09
  - Add check for 008 field with continuing resource currently published.
+ - Add check for 040a field.
  - Update copyright years.
 
 0.08 2025-11-28T12:34:20+01:00

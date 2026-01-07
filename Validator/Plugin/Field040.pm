@@ -50,8 +50,14 @@ sub process {
 		});
 		return;
 	}
-	my $desc_conventions = $field_040->subfield('e');
 
+	if (! $field_040->subfield('a')) {
+		add_error($error_id, $struct_hr, {
+			'error' => "Subfield 040a doesn't exists.",
+		});
+	}
+
+	my $desc_conventions = $field_040->subfield('e');
 	if ($leader->descriptive_cataloging_form eq 'a'
 		&& defined $desc_conventions
 		&& $desc_conventions eq 'rda') {
