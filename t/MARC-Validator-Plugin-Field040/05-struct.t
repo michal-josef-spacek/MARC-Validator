@@ -72,4 +72,4 @@ is_deeply(
 		}],
 	},
 	'Get struct - checks (leader has bad length number - >x1753<).',
-)
+);
