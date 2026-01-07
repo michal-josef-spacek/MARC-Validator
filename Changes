@@ -1,6 +1,7 @@
 0.09
  - Add check for 008 field with continuing resource currently published.
  - Add check for 040a field.
+ - Add test for missing 008 field in field_008 plugin.
  - Add tests for bad leader to field_008 and field_040 plugins.
  - Update copyright years.
 
