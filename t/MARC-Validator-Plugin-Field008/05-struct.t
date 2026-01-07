@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field008;
-use Test::More 'tests' => 11;
+use Test::More 'tests' => 12;
 use Test::NoWarnings;
 
 # Data dir.
@@ -117,4 +117,25 @@ is_deeply(
 		}],
 	},
 	'Get struct - checks (field 008 has bad date 2 - >2002<).',
+);
+
+# Test.
+$obj = MARC::Validator::Plugin::Field008->new(
+	'error_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('fake2-incorrect_leader.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->struct;
+is_deeply(
+	$ret->{'checks'}->{'not_valid'},
+	{
+		'fake2' => [{
+			'error' => "Bad number in length.",
+			'params' => {
+				'String' => 'x1753',
+			},
+		}],
+	},
+	'Get struct - checks (leader has bad length number - >x1753<).',
 );

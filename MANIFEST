@@ -31,6 +31,7 @@ t/data/cnb002172297-leader_desc_cataloging_form_coolidate_with_rda.xml
 t/data/cnb003260113-incorrect_field_020a_isbn_bad.xml
 t/data/cnb003698545-incorrect_field_020a_isbn_formatting.xml
 t/data/fake1-incorrect_field_020a.xml
+t/data/fake2-incorrect_leader.xml
 t/MARC-Validator-Abstract/01-use.t
 t/MARC-Validator-Abstract/02-version.t
 t/MARC-Validator-Abstract/03-new.t

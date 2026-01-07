@@ -6,7 +6,7 @@ use warnings;
 
 use English;
 use Error::Pure::Utils qw(err_get);
-use MARC::Leader;
+use MARC::Leader 0.08;
 use MARC::Field008;
 
 our $VERSION = 0.09;
