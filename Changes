@@ -1,4 +1,4 @@
-0.09
+0.09 2026-01-07T17:29:03+01:00
  - Add check for 008 field with continuing resource currently published.
  - Add check for 040a field.
  - Add test for missing 008 field in field_008 plugin.
