@@ -155,5 +155,5 @@ is_deeply(
 			'error' => "Field 008 is not present.",
 		}],
 	},
-	'Get struct - checks (leader has bad length number - >x1753<).',
+	'Get struct - checks (field 008 is not present).',
 );
