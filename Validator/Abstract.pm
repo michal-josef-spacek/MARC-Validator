@@ -9,7 +9,7 @@ use Error::Pure qw(err);
 use Mo::utils 0.06 qw(check_bool check_required);
 use Mo::utils::Hash qw(check_hash);
 
-our $VERSION = 0.09;
+our $VERSION = 0.10;
 
 # Constructor.
 sub new {
@@ -487,6 +487,6 @@ the Czech Republic (DKRVO 2024–2028), Area 11: Linked Open Data.
 
 =head1 VERSION
 
-0.09
+0.10
 
 =cut
