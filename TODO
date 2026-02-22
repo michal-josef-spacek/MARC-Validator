@@ -5,7 +5,9 @@ TODO
 4. Doc.
 5. Tests.
 7. Rename struct() method to report();
-8.
+8. Add check for 045b (when indicator1 != ' '). Multiple in indicator1 == 1|2.
+9. Add check for 045c (whem indicator1 != ' '). Multiple in indicator1 == 1|2.
+10.
 
 Applied
 =======
