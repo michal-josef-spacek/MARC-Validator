@@ -58,6 +58,7 @@ Returns list of plugin module name strings.
  # - MARC::Validator::Plugin::Field008
  # - MARC::Validator::Plugin::Field020
  # - MARC::Validator::Plugin::Field040
+ # - MARC::Validator::Plugin::Field035
  # - MARC::Validator::Plugin::Field260
  # - MARC::Validator::Plugin::Field264
 
