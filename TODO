@@ -4,7 +4,8 @@ TODO
 2. If present 260c/264c and not 008 date1, there is a issue.
 4. Doc.
 5. Tests.
-7.
+7. Rename struct() method to report();
+8.
 
 Applied
 =======
