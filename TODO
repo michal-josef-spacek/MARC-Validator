@@ -7,7 +7,11 @@ TODO
 7. Rename struct() method to report();
 8. Add check for 045b (when indicator1 != ' '). Multiple in indicator1 == 1|2.
 9. Add check for 045c (whem indicator1 != ' '). Multiple in indicator1 == 1|2.
-10.
+10. Check for "Je-li zmínka o rejstříku (500/504), musí být 008/31 s hodnotou 1"
+11. Check for "je-li 041, musí být u 546 a obráceně"
+12. Check for "Je-li v 655 komiks, mělo by být v 008 na pozicích 24-27 hodnota 6"
+13. Check for "Je-li v 655 učebnice, mělo by být v 008 na pozicích 24-27 hodnota p"
+14.
 
 Applied
 =======
