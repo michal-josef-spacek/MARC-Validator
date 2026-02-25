@@ -1,5 +1,7 @@
 0.11
  - Add plugin for 045 field to check 045a.
+ - Add plugin for 300 field to check presence of illustrations to check
+   field 008.
 
 0.10 2026-02-22T13:19:59+01:00
  - API change: Rewrite to new data model.
