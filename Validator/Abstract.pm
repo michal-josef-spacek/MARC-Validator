@@ -105,6 +105,14 @@ sub process {
 	err __PACKAGE__.' is abstract class.';
 }
 
+sub set_filters {
+	my ($self, @filters) = @_;
+
+	$self->{'filters'} = \@filters;
+
+	return;
+}
+
 sub struct {
 	my $self = shift;
 
@@ -151,6 +159,7 @@ MARC::Validator::Abstract - Abstract class for MARC::Validator plugins.
  my $name = $obj->name;
  my $process = $obj->process($marc_record);
  $obj->postprocess;
+ $obj->set_filters(@filters);
  my $struct_hr = $obj->struct;
  my $version = $obj->version;
 
@@ -174,6 +183,12 @@ Constructor.
 Debug mode.
 
 Default value is 0.
+
+=item * C<filters>
+
+List of filter strings.
+
+Default value is [].
 
 =item * C<record_id_def>
 
@@ -235,6 +250,14 @@ Returns undef.
  $obj->proces($marc_record);
 
 Process L<MARC::Record> instance.
+
+Returns undef.
+
+=head2 C<set_filters>
+
+ $obj->set_filters(@filters);
+
+Set filters to the object.
 
 Returns undef.
 

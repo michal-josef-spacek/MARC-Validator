@@ -85,8 +85,7 @@ sub process {
 	if (@record_errors) {
 		push @{$self->{'errors'}},  Data::MARC::Validator::Report::Plugin::Errors->new(
 			'errors' => \@record_errors,
-			# TODO process
-			'filters' => [],
+			'filters' => $self->{'filters'},
 			'record_id' => $record_id,
 		);
 	}
