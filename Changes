@@ -1,4 +1,4 @@
-0.11
+0.11 2026-03-01T18:20:01+01:00
  - Add 'recommendation' flag for report recommendations.
  - Add plugin for 045 field to check 045a.
  - Add plugin for 300 field to check presence of illustrations to check
