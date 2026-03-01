@@ -1,4 +1,5 @@
 0.11
+ - Add 'recommendation' flag for report recommendations.
  - Add plugin for 045 field to check 045a.
  - Add plugin for 300 field to check presence of illustrations to check
    field 008.

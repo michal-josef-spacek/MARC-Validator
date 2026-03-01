@@ -26,6 +26,9 @@ sub new {
 	# Filters.
 	$self->{'filters'} = [];
 
+	# Recommendation.
+	$self->{'recommendation'} = 0;
+
 	# Record id definition.
 	$self->{'record_id_def'} = '001';
 
@@ -37,6 +40,9 @@ sub new {
 
 	# Check 'debug'.
 	check_bool($self, 'debug');
+
+	# Check 'recommendation'.
+	check_bool($self, 'recommendation');
 
 	# Check 'record_id_def'.
 	check_required($self, 'record_id_def');
