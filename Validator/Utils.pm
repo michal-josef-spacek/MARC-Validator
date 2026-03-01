@@ -9,7 +9,7 @@ use Readonly;
 
 Readonly::Array our @EXPORT_OK => qw(check_260c_year);
 
-our $VERSION = 0.11;
+our $VERSION = 0.12;
 
 sub check_260c_year {
 	my ($self, $value, $field) = @_;
