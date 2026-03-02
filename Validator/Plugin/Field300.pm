@@ -47,7 +47,7 @@ sub process {
 				'params' => \%err_params,
 			);
 		}
-		$self->_process_errors($record_id, \@record_errors. []);
+		$self->_process_errors($record_id, \@record_errors, []);
 		return;
 	}
 
