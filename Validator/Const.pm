@@ -10,7 +10,7 @@ Readonly::Hash our %FIELD_504 => (
 	'cze' => qr{[rR]ejstřík},
 );
 
-our $VERSION = 0.12;
+our $VERSION = 0.13;
 
 1;
 

@@ -13,7 +13,7 @@ use MARC::Field008;
 use MARC::Validator::Const;
 use Unicode::UTF8 qw(decode_utf8);
 
-our $VERSION = 0.11;
+our $VERSION = 0.13;
 
 sub module_name {
 	my $self = shift;
