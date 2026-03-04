@@ -1,4 +1,5 @@
 0.13
+ - Add plugin for 655 field to check presence of comics in 008.
  - Fix Field300 plugin and one error.
 
 0.12 2026-03-02T20:46:14+01:00

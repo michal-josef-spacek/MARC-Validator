@@ -20,6 +20,7 @@ README
 SIGNATURE
 t/data/cnb000000168-correct_field_020a_isbn_not_present.xml
 t/data/cnb000008190-duplicates_in_035a_fields.xml
+t/data/cnb000038388-comics_no_in_field_008.xml
 t/data/cnb000119080-bad_book_material_index.xml
 t/data/cnb000295209-incorrect_field_008_syntax_space.xml
 t/data/cnb000344109-missing_008_illustrations.xml
@@ -86,6 +87,11 @@ t/MARC-Validator-Plugin-Field504/02-version.t
 t/MARC-Validator-Plugin-Field504/03-new.t
 t/MARC-Validator-Plugin-Field504/04-name.t
 t/MARC-Validator-Plugin-Field504/05-struct.t
+t/MARC-Validator-Plugin-Field655/01-use.t
+t/MARC-Validator-Plugin-Field655/02-version.t
+t/MARC-Validator-Plugin-Field655/03-new.t
+t/MARC-Validator-Plugin-Field655/04-name.t
+t/MARC-Validator-Plugin-Field655/05-struct.t
 t/MARC-Validator-Utils/01-use.t
 t/MARC-Validator-Utils/02-version.t
 t/MARC-Validator-Utils/03-check_260c_year.t
@@ -104,6 +110,7 @@ Validator/Plugin/Field260.pm
 Validator/Plugin/Field264.pm
 Validator/Plugin/Field300.pm
 Validator/Plugin/Field504.pm
+Validator/Plugin/Field655.pm
 Validator/Utils.pm
 xt/MARC-Validator-Abstract/01-pod_coverage.t
 xt/MARC-Validator-Abstract/02-pod.t
@@ -127,6 +134,8 @@ xt/MARC-Validator-Plugin-Field300/01-pod_coverage.t
 xt/MARC-Validator-Plugin-Field300/02-pod.t
 xt/MARC-Validator-Plugin-Field504/01-pod_coverage.t
 xt/MARC-Validator-Plugin-Field504/02-pod.t
+xt/MARC-Validator-Plugin-Field655/01-pod_coverage.t
+xt/MARC-Validator-Plugin-Field655/02-pod.t
 xt/MARC-Validator-Utils/01-pod_coverage.t
 xt/MARC-Validator-Utils/02-pod.t
 xt/MARC-Validator/01-pod_coverage.t
