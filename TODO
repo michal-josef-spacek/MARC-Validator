@@ -12,7 +12,8 @@ TODO
 12. Check for "Je-li v 655 komiks, mělo by být v 008 na pozicích 24-27 hodnota 6"
 13. Check for "Je-li v 655 učebnice, mělo by být v 008 na pozicích 24-27 hodnota p"
 15. Check for 500/504 - index on maps.
-16.
+16. Hudebniny - tematicky rejstrik v poli 008 24-29 s hodnotou c, detekce?
+17.
 
 Applied
 =======
