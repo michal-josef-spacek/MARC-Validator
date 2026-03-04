@@ -11,7 +11,6 @@ use Error::Pure::Utils qw(err_get);
 use MARC::Leader 0.08;
 use MARC::Field008;
 use MARC::Validator::Const;
-use Unicode::UTF8 qw(decode_utf8);
 
 our $VERSION = 0.13;
 
