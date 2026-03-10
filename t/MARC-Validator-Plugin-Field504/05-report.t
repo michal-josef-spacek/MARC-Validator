@@ -13,14 +13,14 @@ my $data_dir = File::Object->new->up->dir('data');
 
 # Test.
 my $obj = MARC::Validator::Plugin::Field504->new;
-my $ret = $obj->struct;
+my $ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 is(scalar @{$ret->plugin_errors}, 0, 'No errors without init.');
 
 # Test.
 $obj = MARC::Validator::Plugin::Field504->new;
 $obj->init;
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 is(scalar @{$ret->plugin_errors}, 0, 'No errors with init, without process.');
 
@@ -31,7 +31,7 @@ $obj = MARC::Validator::Plugin::Field504->new(
 $obj->init;
 my $marc = MARC::File::XML->in($data_dir->file('cnb000119080-bad_book_material_index.xml')->s);
 $obj->process($marc->next);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');

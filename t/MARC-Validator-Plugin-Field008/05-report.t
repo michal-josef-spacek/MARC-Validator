@@ -12,14 +12,14 @@ my $data_dir = File::Object->new->up->dir('data');
 
 # Test.
 my $obj = MARC::Validator::Plugin::Field008->new;
-my $ret = $obj->struct;
+my $ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 is(scalar @{$ret->plugin_errors}, 0, 'No errors without init.');
 
 # Test.
 $obj = MARC::Validator::Plugin::Field008->new;
 $obj->init;
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 is(scalar @{$ret->plugin_errors}, 0, 'No errors with init, without process.');
 
@@ -30,7 +30,7 @@ $obj = MARC::Validator::Plugin::Field008->new(
 $obj->init;
 my $marc_record = MARC::File::XML->in($data_dir->file('cnb001920818-incorrect_field_008_syntax_quote_mark.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');
@@ -48,7 +48,7 @@ $obj = MARC::Validator::Plugin::Field008->new(
 $obj->init;
 $marc_record = MARC::File::XML->in($data_dir->file('cnb000295209-incorrect_field_008_syntax_space.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');
@@ -66,7 +66,7 @@ $obj = MARC::Validator::Plugin::Field008->new(
 $obj->init;
 $marc_record = MARC::File::XML->in($data_dir->file('cnb001873805-incorrect_field_008_content-blank.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');
@@ -85,7 +85,7 @@ $obj = MARC::Validator::Plugin::Field008->new(
 $obj->init;
 $marc_record = MARC::File::XML->in($data_dir->file('cnb001696044-bad_date2_in_currently_published.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');
@@ -104,7 +104,7 @@ $obj = MARC::Validator::Plugin::Field008->new(
 $obj->init;
 $marc_record = MARC::File::XML->in($data_dir->file('fake2-incorrect_leader.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');
@@ -123,7 +123,7 @@ $obj = MARC::Validator::Plugin::Field008->new(
 $obj->init;
 $marc_record = MARC::File::XML->in($data_dir->file('fake3-missing_field_008.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');

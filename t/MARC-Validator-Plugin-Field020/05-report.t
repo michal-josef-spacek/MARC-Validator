@@ -12,14 +12,14 @@ my $data_dir = File::Object->new->up->dir('data');
 
 # Test.
 my $obj = MARC::Validator::Plugin::Field020->new;
-my $ret = $obj->struct;
+my $ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 is(scalar @{$ret->plugin_errors}, 0, 'No errors without init.');
 
 # Test.
 $obj = MARC::Validator::Plugin::Field020->new;
 $obj->init;
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 is(scalar @{$ret->plugin_errors}, 0, 'No errors with init, without process.');
 
@@ -30,7 +30,7 @@ $obj = MARC::Validator::Plugin::Field020->new(
 $obj->init;
 my $marc_record = MARC::File::XML->in($data_dir->file('cnb003260113-incorrect_field_020a_isbn_bad.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');
@@ -48,7 +48,7 @@ $obj = MARC::Validator::Plugin::Field020->new(
 $obj->init;
 $marc_record = MARC::File::XML->in($data_dir->file('cnb003698545-incorrect_field_020a_isbn_formatting.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');
@@ -66,7 +66,7 @@ $obj = MARC::Validator::Plugin::Field020->new(
 $obj->init;
 $marc_record = MARC::File::XML->in($data_dir->file('cnb001410157-incorrect_field_020a_isbn_with_extra_characters.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');
@@ -84,7 +84,7 @@ $obj = MARC::Validator::Plugin::Field020->new(
 $obj->init;
 $marc_record = MARC::File::XML->in($data_dir->file('fake1-incorrect_field_020a.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');
@@ -100,7 +100,7 @@ $obj = MARC::Validator::Plugin::Field020->new;
 $obj->init;
 $marc_record = MARC::File::XML->in($data_dir->file('cnb000000168-correct_field_020a_isbn_not_present.xml')->s)->next;
 $obj->process($marc_record);
-$ret = $obj->struct;
+$ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
 ok(defined $ret->module_name, 'Module name is defined.');
 ok(defined $ret->version, 'Version is defined.');
