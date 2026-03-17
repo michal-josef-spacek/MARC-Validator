@@ -1,6 +1,7 @@
 0.14
  - API change: Rename struct() method to report() in
    MARC::Validator::Abstract and all plugins.
+ - Add check for 'manga' in 655 field.
  - Remove obsolete code from tests.
 
 0.13 2026-03-04T11:46:22+01:00
