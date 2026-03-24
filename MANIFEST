@@ -69,6 +69,8 @@ t/MARC-Validator-Plugin-Field045/02-version.t
 t/MARC-Validator-Plugin-Field045/03-new.t
 t/MARC-Validator-Plugin-Field045/04-name.t
 t/MARC-Validator-Plugin-Field045/05-report.t
+t/MARC-Validator-Plugin-Field080/01-use.t
+t/MARC-Validator-Plugin-Field080/02-version.t
 t/MARC-Validator-Plugin-Field260/01-use.t
 t/MARC-Validator-Plugin-Field260/02-version.t
 t/MARC-Validator-Plugin-Field260/03-new.t
@@ -106,6 +108,7 @@ Validator/Plugin/Field020.pm
 Validator/Plugin/Field035.pm
 Validator/Plugin/Field040.pm
 Validator/Plugin/Field045.pm
+Validator/Plugin/Field080.pm
 Validator/Plugin/Field260.pm
 Validator/Plugin/Field264.pm
 Validator/Plugin/Field300.pm
@@ -126,6 +129,8 @@ xt/MARC-Validator-Plugin-Field040/01-pod_coverage.t
 xt/MARC-Validator-Plugin-Field040/02-pod.t
 xt/MARC-Validator-Plugin-Field045/01-pod_coverage.t
 xt/MARC-Validator-Plugin-Field045/02-pod.t
+xt/MARC-Validator-Plugin-Field080/01-pod_coverage.t
+xt/MARC-Validator-Plugin-Field080/02-pod.t
 xt/MARC-Validator-Plugin-Field260/01-pod_coverage.t
 xt/MARC-Validator-Plugin-Field260/02-pod.t
 xt/MARC-Validator-Plugin-Field264/01-pod_coverage.t

@@ -29,6 +29,7 @@ no_index:
     - xt
 requires:
   Business::ISBN: 0
+  Business::UDC: 0
   Class::Utils: 0.03
   Data::MARC::Validator::Report::Error: 0.02
   Data::MARC::Validator::Report::Plugin: 0.02
