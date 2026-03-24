@@ -3,6 +3,7 @@
    MARC::Validator::Abstract and all plugins.
  - Add check for 'manga' in 655 field.
  - Add plugin for 080 field to check valid UDC string.
+ - Remove leader/008 errors from 300 field check.
  - Remove leader/008 errors from 504 field check.
  - Remove leader/008 errors from 655 field check.
  - Remove obsolete code from tests.
