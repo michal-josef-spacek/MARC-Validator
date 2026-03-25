@@ -13,7 +13,7 @@ Readonly::Hash our %FIELD_655 => (
 	'cze' => qr{komiksy|komiksové|manga},
 );
 
-our $VERSION = 0.14;
+our $VERSION = 0.15;
 
 1;
 
