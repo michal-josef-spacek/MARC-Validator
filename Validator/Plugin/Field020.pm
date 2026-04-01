@@ -68,6 +68,7 @@ sub process {
 						'error' => 'Bad ISBN in 020a field, extra characters.',
 						'params' => {
 							'Value' => $isbn,
+							'proposed_value' => $isbn_obj->as_string,
 						},
 					);
 				} else {
@@ -75,6 +76,7 @@ sub process {
 						'error' => 'Bad ISBN in 020a field, bad formatting.',
 						'params' => {
 							'Value' => $isbn,
+							'proposed_value' => $isbn_obj->as_string,
 						},
 					);
 				}
