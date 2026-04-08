@@ -1,4 +1,5 @@
 0.15
+ - Add check for 300a and 300b fields to bad strings (mm, cm, etc.).
  - Add proposed values to ISBN issues.
 
 0.14 2026-03-25T10:16:40+01:00

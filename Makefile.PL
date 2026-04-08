@@ -27,6 +27,7 @@ requires 'Data::MARC::Validator::Report::Plugin::Errors' => 0.02;
 requires 'DateTime' => 0;
 requires 'English' => 0;
 requires 'Error::Pure' => 0;
+requires 'List::Util' => 1.33;
 requires 'MARC::Field008' => 0;
 requires 'MARC::Leader' => 0.08;
 requires 'Mo::utils' => 0.06;

@@ -6,6 +6,11 @@ use warnings;
 
 use Readonly;
 
+Readonly::Array our @FIELD_300ab_BAD => (
+	'cm',
+	'mm',
+	'°',
+);
 Readonly::Hash our %FIELD_504 => (
 	'cze' => qr{[rR]ejstřík},
 );
