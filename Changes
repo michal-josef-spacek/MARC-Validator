@@ -1,4 +1,5 @@
 0.16
+ - Add check for book/map index from 500a field.
  - Add check for map index from 504a field.
  - Rename testing MARC XML file to better name.
 

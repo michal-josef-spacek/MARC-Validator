@@ -11,6 +11,9 @@ Readonly::Array our @FIELD_300ab_BAD => (
 	'mm',
 	'°',
 );
+Readonly::Hash our %FIELD_500 => (
+	'cze' => qr{[rR]ejstřík},
+);
 Readonly::Hash our %FIELD_504 => (
 	'cze' => qr{[rR]ejstřík},
 );
