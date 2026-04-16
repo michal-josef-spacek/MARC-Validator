@@ -29,7 +29,7 @@ $obj = MARC::Validator::Plugin::Field504->new(
 	'record_id_def' => '015a',
 );
 $obj->init;
-my $marc = MARC::File::XML->in($data_dir->file('cnb000119080-bad_book_material_index.xml')->s);
+my $marc = MARC::File::XML->in($data_dir->file('cnb000119080-bad_book_material_index-504a.xml')->s);
 $obj->process($marc->next);
 $ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');

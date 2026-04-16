@@ -1,5 +1,6 @@
 0.16
  - Add check for map index from 504a field.
+ - Rename testing MARC XML file to better name.
 
 0.15 2026-04-08T17:44:16+02:00
  - Add check for 300a and 300b fields to bad strings (mm, cm, etc.).
