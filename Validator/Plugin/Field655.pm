@@ -69,24 +69,27 @@ sub process {
 				return;
 			}
 			my $qr;
-			if (exists $MARC::Validator::Const::FIELD_655{$lang}->{'comics'}) {
-				$qr = $MARC::Validator::Const::FIELD_655{$lang}->{'comics'};
-			}
-			if (! defined $qr) {
-				return;
-			}
-			if ($material->isa('Data::MARC::Field008::Book')
-				&& $field_655a =~ $qr
-				&& $material->nature_of_content !~ '6') {
+			foreach my $qr_ar (['comics', '6'], ['textbook', 'p']) {
+				if (exists $MARC::Validator::Const::FIELD_655{$lang}->{$qr_ar->[0]}) {
+					$qr = $MARC::Validator::Const::FIELD_655{$lang}->{$qr_ar->[0]};
+				}
+				if (! defined $qr) {
+					next;
+				}
+				if ($material->isa('Data::MARC::Field008::Book')
+					&& $material->nature_of_content ne '||||'
+					&& $field_655a =~ $qr
+					&& $material->nature_of_content !~ $qr_ar->[1]) {
 
-				push @record_errors, Data::MARC::Validator::Report::Error->new(
-					'error' => 'Missing comics nature of content in field 008.',
-					'params' => {
-						'field_008_nature_of_content' => $material->nature_of_content,
-						'field_655_a' => $field_655a,
-						'material' => 'book',
-					},
-				);
+					push @record_errors, Data::MARC::Validator::Report::Error->new(
+						'error' => 'Missing '.$qr_ar->[0].' nature of content in field 008.',
+						'params' => {
+							'field_008_nature_of_content' => $material->nature_of_content,
+							'field_655_a' => $field_655a,
+							'material' => 'book',
+						},
+					);
+				}
 			}
 		}
 	}

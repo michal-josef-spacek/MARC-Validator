@@ -20,6 +20,7 @@ Readonly::Hash our %FIELD_504 => (
 Readonly::Hash our %FIELD_655 => (
 	'cze' => {
 		'comics' => qr{komiksy|komiksové|manga},
+		'textbook' => qr{učebnice},
 	},
 );
 

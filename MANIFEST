@@ -39,6 +39,7 @@ t/data/cnb003160105-bad_book_material_index-500a.xml
 t/data/cnb003239939-bad_map_material_index-500a.xml
 t/data/cnb003260113-incorrect_field_020a_isbn_bad.xml
 t/data/cnb003662591-missing_008_illustrations-not_coded.xml
+t/data/cnb003689262-missing_008_programmed_texts-655a.xml
 t/data/cnb003698545-incorrect_field_020a_isbn_formatting.xml
 t/data/fake1-incorrect_field_020a.xml
 t/data/fake2-incorrect_leader.xml
