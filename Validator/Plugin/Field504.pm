@@ -71,17 +71,24 @@ sub process {
 
 				$qr = $MARC::Validator::Const::FIELD_504{$lang};
 			}
-			if ($material->isa('Data::MARC::Field008::Book')
+			if (($material->isa('Data::MARC::Field008::Book')
+				|| $material->isa('Data::MARC::Field008::Map'))
 				&& defined $qr
 				&& $field_504a =~ $qr
 				&& $material->index eq '0') {
 
+				my $material_string;
+				if ($material->isa('Data::MARC::Field008::Book')) {
+					$material_string = 'book';
+				} else {
+					$material_string = 'map';
+				}
 				push @record_errors, Data::MARC::Validator::Report::Error->new(
 					'error' => 'Missing index in field 008.',
 					'params' => {
 						'field_008_index' => $material->index,
 						'field_504_a' => $field_504a,
-						'material' => 'book',
+						'material' => $material_string,
 					},
 				);
 			}
