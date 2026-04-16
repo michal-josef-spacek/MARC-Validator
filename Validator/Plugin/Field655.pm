@@ -67,9 +67,9 @@ sub process {
 			my $lang = $marc_record->subfield('040', 'b');
 			my $qr;
 			if (defined $lang
-				&& exists $MARC::Validator::Const::FIELD_655{$lang}) {
+				&& exists $MARC::Validator::Const::FIELD_655{$lang}->{'comics'}) {
 
-				$qr = $MARC::Validator::Const::FIELD_655{$lang};
+				$qr = $MARC::Validator::Const::FIELD_655{$lang}->{'comics'};
 			}
 			if ($material->isa('Data::MARC::Field008::Book')
 				&& defined $qr
