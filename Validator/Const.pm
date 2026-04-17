@@ -13,7 +13,9 @@ Readonly::Array our @FIELD_300ab_BAD => (
 );
 Readonly::Hash our %FIELD_500 => (
 	'cze' => {
-		'index' => qr{[rR]ejstřík},
+		# Not QR ... [rR]ejstřík
+		# Not [rR]ejstřík není
+		'index' => qr{\A(?!.*\bQR\b)(?s:.*?)[rR]ejstřík(?!\s+není\b)},
 	},
 );
 Readonly::Hash our %FIELD_504 => (

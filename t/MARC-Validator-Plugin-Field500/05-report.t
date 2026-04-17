@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field500;
-use Test::More 'tests' => 25;
+use Test::More 'tests' => 35;
 use Test::NoWarnings;
 use Unicode::UTF8 qw(decode_utf8);
 
@@ -69,3 +69,33 @@ is($errors->[0]->errors->[0]->params->{'field_008_index'}, '0',
 is($errors->[0]->errors->[0]->params->{'field_500_a'}, decode_utf8('Obsahuje rejstřík'),
 	'Get error parameter (field_500_a => (Obsahuje rejstřík).');
 is($errors->[0]->errors->[0]->params->{'material'}, 'map', 'Get error parameter (material => (map).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field500->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc = MARC::File::XML->in($data_dir->file('cnb003310078-not_index-500a.xml')->s);
+$obj->process($marc->next);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_500', 'Get name (field_500).');
+$errors = $ret->plugin_errors;
+is(@{$errors}, 0, 'Get errors count (0).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field500->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc = MARC::File::XML->in($data_dir->file('cnb003592608-not_index-500a.xml')->s);
+$obj->process($marc->next);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_500', 'Get name (field_500).');
+$errors = $ret->plugin_errors;
+is(@{$errors}, 0, 'Get errors count (0).');
