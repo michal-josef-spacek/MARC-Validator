@@ -3,6 +3,7 @@
  - Add check for book/map index from 500a field.
  - Add check for map index from 504a field.
  - Rename testing MARC XML file to better name.
+ - Skip ISBD punctation (:) in ISBN records.
 
 0.15 2026-04-08T17:44:16+02:00
  - Add check for 300a and 300b fields to bad strings (mm, cm, etc.).

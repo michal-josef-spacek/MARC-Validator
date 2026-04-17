@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field020;
-use Test::More 'tests' => 38;
+use Test::More 'tests' => 43;
 use Test::NoWarnings;
 
 # Data dir.
@@ -99,6 +99,23 @@ is($errors->[0]->errors->[0]->params->{'Value'}, 'bad', 'Get error parameter (Va
 $obj = MARC::Validator::Plugin::Field020->new;
 $obj->init;
 $marc_record = MARC::File::XML->in($data_dir->file('cnb000000168-correct_field_020a_isbn_not_present.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_020', 'Get name (field_020).');
+$errors = $ret->plugin_errors;
+is_deeply(
+	$errors,
+	[],
+	'No errors.',
+);
+
+# Test.
+$obj = MARC::Validator::Plugin::Field020->new;
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb000060952-isbd_extra_characters_in_020a.xml')->s)->next;
 $obj->process($marc_record);
 $ret = $obj->report;
 isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
