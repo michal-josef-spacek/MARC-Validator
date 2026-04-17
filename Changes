@@ -1,4 +1,5 @@
 0.17
+ - Fix MANIFEST.
 
 0.16 2026-04-17T16:42:44+02:00
  - Add check for book textbook from 655a field.
