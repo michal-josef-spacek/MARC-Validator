@@ -1,6 +1,5 @@
 TODO
 ====
-1. Add plugins preference. e.g. issue in leader is before issue in field008
 2. If present 260c/264c and not 008 date1, there is a issue.
 4. Doc.
 5. Tests.
@@ -37,3 +36,6 @@ OK [20260417] skim
 
 13. Check for "Je-li v 655 učebnice, mělo by být v 008 na pozicích 24-27 hodnota p"
 OK [20260417] skim
+
+1. Add plugins preference. e.g. issue in leader is before issue in field008
+NONE [20260417] skim
