@@ -76,8 +76,15 @@ sub process {
 			}
 		} else {
 			if ($isbn_obj->as_string ne $isbn) {
-				if ((length $isbn_obj->as_string) != (length $isbn)) {
-
+				if ($isbn =~ m/^[\d\-]+$/ms) {
+					push @record_errors, Data::MARC::Validator::Report::Error->new(
+						'error' => 'Bad ISBN in 020a field, bad formatting.',
+						'params' => {
+							'Value' => $isbn,
+							'proposed_value' => $isbn_obj->as_string,
+						},
+					);
+				} else {
 					# Skip ISBD punctuations.
 					if ($leader->descriptive_cataloging_form eq 'i') {
 						my $new_isbn = $isbn_obj->as_string;
@@ -99,14 +106,6 @@ sub process {
 							},
 						);
 					}
-				} else {
-					push @record_errors, Data::MARC::Validator::Report::Error->new(
-						'error' => 'Bad ISBN in 020a field, bad formatting.',
-						'params' => {
-							'Value' => $isbn,
-							'proposed_value' => $isbn_obj->as_string,
-						},
-					);
 				}
 			}
 		}

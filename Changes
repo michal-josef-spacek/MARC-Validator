@@ -2,6 +2,7 @@
  - Add check for book textbook from 655a field.
  - Add check for book/map index from 500a field.
  - Add check for map index from 504a field.
+ - Improve report of ISBN formatting issues.
  - Rename testing MARC XML file to better name.
  - Skip ISBD punctation (:) in ISBN records.
 
