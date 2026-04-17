@@ -8,7 +8,8 @@ TODO
 11. Check for "je-li 041, musí být u 546 a obráceně"
 16. Hudebniny - tematicky rejstrik v poli 008 24-29 s hodnotou c, detekce?
 17. Improve EXAMPLE in Abstract class.
-18.
+18. What about ':' character in 020a? It's not ISBD.
+19.
 
 Applied
 =======
