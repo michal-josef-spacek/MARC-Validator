@@ -1,4 +1,4 @@
-0.16
+0.16 2026-04-17T16:42:44+02:00
  - Add check for book textbook from 655a field.
  - Add check for book/map index from 500a field.
  - Add check for map index from 504a field.
