@@ -12,10 +12,14 @@ Readonly::Array our @FIELD_300ab_BAD => (
 	'°',
 );
 Readonly::Hash our %FIELD_500 => (
-	'cze' => qr{[rR]ejstřík},
+	'cze' => {
+		'index' => qr{[rR]ejstřík},
+	},
 );
 Readonly::Hash our %FIELD_504 => (
-	'cze' => qr{[rR]ejstřík},
+	'cze' => {
+		'index' => qr{[rR]ejstřík},
+	},
 );
 Readonly::Hash our %FIELD_655 => (
 	'cze' => {
