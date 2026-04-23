@@ -1,4 +1,5 @@
 0.18
+ - Add error with spaces to field 080 check (UDC).
 
 0.17 2026-04-17T16:48:41+02:00
  - Fix MANIFEST.

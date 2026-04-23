@@ -4,7 +4,7 @@ use base qw(MARC::Validator::Abstract);
 use strict;
 use warnings;
 
-use Business::UDC;
+use Business::UDC 0.04;
 use Data::MARC::Validator::Report::Error 0.02;
 use Data::MARC::Validator::Report::Plugin::Errors 0.02;
 
@@ -33,7 +33,14 @@ sub process {
 		my $field_080a = $field_080->subfield('a');
 		my $udc = Business::UDC->new($field_080a);
 		if (! $udc->is_valid) {
-			if ($udc->error eq "Unexpected token ']'.") {
+			if ($udc->error eq 'Whitespace is not allowed in UDC string.') {
+				push @record_errors, Data::MARC::Validator::Report::Error->new(
+					'error' => "Field 080a has trailing space.",
+					'params' => {
+						'value' => $field_080a,
+					},
+				);
+			} elsif ($udc->error eq "Unexpected token ']'.") {
 				push @record_errors, Data::MARC::Validator::Report::Error->new(
 					'error' => "Field 080a has missing '['.",
 					'params' => {
