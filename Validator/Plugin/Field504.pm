@@ -67,6 +67,7 @@ sub process {
 			my $lang = $marc_record->subfield('040', 'b');
 			my $qr;
 			if (defined $lang
+				&& exists $MARC::Validator::Const::FIELD_504{$lang}
 				&& exists $MARC::Validator::Const::FIELD_504{$lang}->{'index'}) {
 
 				$qr = $MARC::Validator::Const::FIELD_504{$lang}->{'index'};
