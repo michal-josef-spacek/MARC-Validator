@@ -9,7 +9,8 @@ TODO
 16. Hudebniny - tematicky rejstrik v poli 008 24-29 s hodnotou c, detekce?
 17. Improve EXAMPLE in Abstract class.
 18. What about ':' character in 020a? It's not ISBD.
-19.
+19. Better handling of errors from MARC::Leader?
+20.
 
 Applied
 =======
