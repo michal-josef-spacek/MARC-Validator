@@ -1,3 +1,5 @@
+0.19
+
 0.18 2026-04-28T16:53:59+02:00
  - Add error with spaces to field 080 check (UDC).
  - Fix bad exists.
