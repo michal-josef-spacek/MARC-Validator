@@ -10,7 +10,8 @@ TODO
 17. Improve EXAMPLE in Abstract class.
 18. What about ':' character in 020a? It's not ISBD.
 19. Better handling of errors from MARC::Leader?
-20.
+20. 'mode_strict' in MARC::Leader and MARC::Field008?
+21.
 
 Applied
 =======
