@@ -1,4 +1,5 @@
 0.19
+ - Add new error in UDC (standalone name on the begin of the string).
  - Rename parameter 'value' to standard 'field_080_a' in Field080 check.
  - Update output of EXAMPLE in doc.
 
