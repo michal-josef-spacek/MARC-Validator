@@ -37,21 +37,21 @@ sub process {
 				push @record_errors, Data::MARC::Validator::Report::Error->new(
 					'error' => "Field 080a has trailing space.",
 					'params' => {
-						'value' => $field_080a,
+						'field_080_a' => $field_080a,
 					},
 				);
 			} elsif ($udc->error eq "Unexpected token ']'.") {
 				push @record_errors, Data::MARC::Validator::Report::Error->new(
 					'error' => "Field 080a has missing '['.",
 					'params' => {
-						'value' => $field_080a,
+						'field_080_a' => $field_080a,
 					},
 				);
 			} elsif ($udc->error eq "Unclosed subgroup '['.") {
 				push @record_errors, Data::MARC::Validator::Report::Error->new(
 					'error' => "Field 080a has missing ']'.",
 					'params' => {
-						'value' => $field_080a,
+						'field_080_a' => $field_080a,
 					},
 				);
 			}

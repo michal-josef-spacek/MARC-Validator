@@ -39,5 +39,5 @@ my $errors = $ret->plugin_errors;
 is($errors->[0]->record_id, 'cnb000396346', 'Get record id (cnb000396346).');
 is($errors->[0]->errors->[0]->error, "Field 080a has trailing space.",
 	"Get error (Field 080a has trailing space.).");
-is($errors->[0]->errors->[0]->params->{'value'}, "677.062 +65.01] :687.1(082)",
-	'Get error parameter (value => 677.062 +65.01] :687.1(082)).');
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, "677.062 +65.01] :687.1(082)",
+	'Get error parameter (field_080_a => 677.062 +65.01] :687.1(082)).');
