@@ -8,7 +8,7 @@ use Business::UDC 0.06;
 use Data::MARC::Validator::Report::Error 0.02;
 use Data::MARC::Validator::Report::Plugin::Errors 0.02;
 
-our $VERSION = 0.19;
+our $VERSION = 0.20;
 
 sub module_name {
 	my $self = shift;

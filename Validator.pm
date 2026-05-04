@@ -5,7 +5,7 @@ use warnings;
 
 use Module::Pluggable require => 1;
 
-our $VERSION = 0.19;
+our $VERSION = 0.20;
 
 1;
 
@@ -97,6 +97,6 @@ the Czech Republic (DKRVO 2024–2028), Area 11: Linked Open Data.
 
 =head1 VERSION
 
-0.19
+0.20
 
 =cut
