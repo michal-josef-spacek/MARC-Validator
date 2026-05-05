@@ -1,5 +1,6 @@
 0.21
  - Add error for bad apostrophe in 080a field.
+ - Add error for bad quotation mark in 080a field.
 
 0.20 2026-05-04T08:53:37+02:00
  - Fix MANIFEST file.

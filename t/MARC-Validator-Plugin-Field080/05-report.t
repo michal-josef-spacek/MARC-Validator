@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field080;
-use Test::More 'tests' => 40;
+use Test::More 'tests' => 68;
 use Test::NoWarnings;
 use Unicode::UTF8 qw(decode_utf8);
 
@@ -118,3 +118,79 @@ is($errors->[0]->errors->[0]->error, "Field 080a has bad apostrophe character.",
 	"Get error (Field 080a has bad apostrophe character.).");
 is($errors->[0]->errors->[0]->params->{'field_080_a'}, decode_utf8('81&apos;374'),
 	'Get error parameter (field_080_a => 81&apos;374).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field080->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb000037638-bad_quotation_mark_in_080a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_080', 'Get name (field_080).');
+$errors = $ret->plugin_errors;
+is($errors->[0]->record_id, 'cnb000037638', 'Get record id (cnb000037638).');
+is($errors->[0]->errors->[0]->error, "Field 080a has bad quotation mark character.",
+	"Get error (Field 080a has bad quotation mark character.).");
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, decode_utf8('94(470.23)”1941/1944”'),
+	'Get error parameter (field_080_a => 94(470.23)”1941/1944”).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field080->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb002220549-bad_quotation_mark_in_080a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_080', 'Get name (field_080).');
+$errors = $ret->plugin_errors;
+is($errors->[0]->record_id, 'cnb002220549', 'Get record id (cnb002220549).');
+is($errors->[0]->errors->[0]->error, "Field 080a has bad quotation mark character.",
+	"Get error (Field 080a has bad quotation mark character.).");
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, decode_utf8('355.483(966.2)“1944”'),
+	'Get error parameter (field_080_a => 355.483(966.2)“1944”).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field080->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb000425076-bad_quotation_mark_in_080a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_080', 'Get name (field_080).');
+$errors = $ret->plugin_errors;
+is($errors->[0]->record_id, 'cnb000425076', 'Get record id (cnb000425076).');
+is($errors->[0]->errors->[0]->error, "Field 080a has bad quotation mark character.",
+	"Get error (Field 080a has bad quotation mark character.).");
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, qq(32(437)"1918/1938''(061.3)),
+	'Get error parameter (field_080_a => 32(437)"1918/1938\'\'(061.3)).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field080->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb003713673-bad_quotation_mark_in_080a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_080', 'Get name (field_080).');
+$errors = $ret->plugin_errors;
+is($errors->[0]->record_id, 'cnb003713673', 'Get record id (cnb003713673).');
+is($errors->[0]->errors->[0]->error, "Field 080a has bad quotation mark character.",
+	"Get error (Field 080a has bad quotation mark character.).");
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, decode_utf8('017.092:027.53(437.1Ústí n. Labem)\'\'1969"'),
+	'Get error parameter (field_080_a => 017.092:027.53(437.1Ústí n. Labem)\'\'1969").');

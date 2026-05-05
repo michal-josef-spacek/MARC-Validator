@@ -56,6 +56,14 @@ sub process {
 						'character' => $udc_error_params{'character'},
 					},
 				);
+			} elsif ($udc_error eq 'Bad quotation mark character.') {
+				push @record_errors, Data::MARC::Validator::Report::Error->new(
+					'error' => "Field 080a has bad quotation mark character.",
+					'params' => {
+						'field_080_a' => $field_080a,
+						'character' => $udc_error_params{'character'},
+					},
+				);
 			} elsif ($udc_error eq "Unexpected token ']'.") {
 				push @record_errors, Data::MARC::Validator::Report::Error->new(
 					'error' => "Field 080a has missing '['.",
