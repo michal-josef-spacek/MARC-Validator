@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field080;
-use Test::More 'tests' => 19;
+use Test::More 'tests' => 40;
 use Test::NoWarnings;
 use Unicode::UTF8 qw(decode_utf8);
 
@@ -61,3 +61,60 @@ is($errors->[0]->errors->[0]->error, "Field 080a has name standalone.",
 	"Get error (Field 080a has name standalone.).");
 is($errors->[0]->errors->[0]->params->{'field_080_a'}, decode_utf8('Kružberk (Česko)'),
 	'Get error parameter (field_080_a => Kružberk (Česko)).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field080->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb001791567-bad_apostrophe_in_080a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_080', 'Get name (field_080).');
+$errors = $ret->plugin_errors;
+is($errors->[0]->record_id, 'cnb001791567', 'Get record id (cnb001791567).');
+is($errors->[0]->errors->[0]->error, "Field 080a has bad apostrophe character.",
+	"Get error (Field 080a has bad apostrophe character.).");
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, decode_utf8('81’1'),
+	'Get error parameter (field_080_a => 81’1).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field080->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb002703924-bad_apostrophe_in_080a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_080', 'Get name (field_080).');
+$errors = $ret->plugin_errors;
+is($errors->[0]->record_id, 'cnb002703924', 'Get record id (cnb002703924).');
+is($errors->[0]->errors->[0]->error, "Field 080a has bad apostrophe character.",
+	"Get error (Field 080a has bad apostrophe character.).");
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, decode_utf8('81`35'),
+	'Get error parameter (field_080_a => 81`35).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field080->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb002880415-bad_apostrophe_in_080a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_080', 'Get name (field_080).');
+$errors = $ret->plugin_errors;
+is($errors->[0]->record_id, 'cnb002880415', 'Get record id (cnb002880415).');
+is($errors->[0]->errors->[0]->error, "Field 080a has bad apostrophe character.",
+	"Get error (Field 080a has bad apostrophe character.).");
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, decode_utf8('81&apos;374'),
+	'Get error parameter (field_080_a => 81&apos;374).');
