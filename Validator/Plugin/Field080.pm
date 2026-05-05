@@ -64,20 +64,6 @@ sub process {
 						'character' => $udc_error_params{'character'},
 					},
 				);
-			} elsif ($udc_error eq "Unexpected token ']'.") {
-				push @record_errors, Data::MARC::Validator::Report::Error->new(
-					'error' => "Field 080a has missing '['.",
-					'params' => {
-						'field_080_a' => $field_080a,
-					},
-				);
-			} elsif ($udc_error eq "Unclosed subgroup '['.") {
-				push @record_errors, Data::MARC::Validator::Report::Error->new(
-					'error' => "Field 080a has missing ']'.",
-					'params' => {
-						'field_080_a' => $field_080a,
-					},
-				);
 			}
 		}
 	}
