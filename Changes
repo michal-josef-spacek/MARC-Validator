@@ -1,4 +1,4 @@
-0.21
+0.21 2026-05-06T08:20:20+02:00
  - Add error for bad apostrophe in 080a field.
  - Add error for bad quotation mark in 080a field.
  - Remove validation of [ and ] in 080a field. This is bad.
