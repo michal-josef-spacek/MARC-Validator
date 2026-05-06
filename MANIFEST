@@ -32,6 +32,7 @@ t/data/cnb000396346-trailing_space_in_080a.xml
 t/data/cnb000425076-bad_quotation_mark_in_080a.xml
 t/data/cnb000545093-cnb001214971-duplicite_035a.xml
 t/data/cnb000564501-bad_first_character_on_045a.xml
+t/data/cnb000990644-bad_dot_character_in_080a.xml
 t/data/cnb001021906-bad_book_material_index-504a.xml
 t/data/cnb001410157-incorrect_field_020a_isbn_with_extra_characters.xml
 t/data/cnb001696044-bad_date2_in_currently_published.xml

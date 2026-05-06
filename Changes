@@ -1,4 +1,5 @@
 0.22
+ - Add error for bad dot in 080a field.
 
 0.21 2026-05-06T08:20:20+02:00
  - Add error for bad apostrophe in 080a field.
