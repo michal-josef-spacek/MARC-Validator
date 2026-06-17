@@ -69,6 +69,10 @@ sub process {
 		my @errors = err_get(1);
 		foreach my $error (@errors) {
 			my %err_params = @{$error->{'msg'}}[1 .. $#{$error->{'msg'}}];
+			# XXX Weird error.
+			if (exists $err_params{'DateTime error'}) {
+				delete $err_params{'DateTime error'};
+			}
 			push @record_errors, Data::MARC::Validator::Report::Error->new(
 				'error' => $error->{'msg'}->[0],
 				'params' => \%err_params,
