@@ -33,7 +33,9 @@ Get list of present plugins.
 
 Returns list of plugin module name strings.
 
-=head1 EXAMPLE
+=head1 EXAMPLES
+
+=head2 EXAMPLE
 
 =for comment filename=plugins_list.pl
 

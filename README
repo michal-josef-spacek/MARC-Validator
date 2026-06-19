@@ -14,7 +14,8 @@ METHODS
 
     Returns list of plugin module name strings.
 
-EXAMPLE
+EXAMPLES
+  EXAMPLE
      use strict;
      use warnings;
 

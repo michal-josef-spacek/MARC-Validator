@@ -293,7 +293,9 @@ Returns string.
          (only in this abstract class)
          MARC::Validator::Abstract is abstract class.
 
-=head1 EXAMPLE
+=head1 EXAMPLES
+
+=head2 EXAMPLE
 
 =for comment filename=example_plugin.pl
 
