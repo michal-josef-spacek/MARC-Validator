@@ -4,7 +4,7 @@ use base qw(MARC::Validator::Abstract);
 use strict;
 use warnings;
 
-use Business::UDC 0.08;
+use Business::UDC 0.09;
 use Data::MARC::Validator::Report::Error 0.02;
 use Data::MARC::Validator::Report::Plugin::Errors 0.02;
 
