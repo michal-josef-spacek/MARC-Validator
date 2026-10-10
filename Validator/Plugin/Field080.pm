@@ -72,6 +72,22 @@ sub process {
 						'character' => $udc_error_params{'character'},
 					},
 				);
+			} elsif ($udc_error eq "Missing opening parenthesis '('.") {
+				push @record_errors, Data::MARC::Validator::Report::Error->new(
+					'error' => "Field 080a has missing opening parenthesis '('.",
+					'params' => {
+						'field_080_a' => $field_080a,
+						'character' => $udc_error_params{'character'},
+					},
+				);
+			} elsif ($udc_error eq "Missing closing parenthesis ')'.") {
+				push @record_errors, Data::MARC::Validator::Report::Error->new(
+					'error' => "Field 080a has missing closing parenthesis ')'.",
+					'params' => {
+						'field_080_a' => $field_080a,
+						'character' => $udc_error_params{'character'},
+					},
+				);
 			}
 		}
 	}

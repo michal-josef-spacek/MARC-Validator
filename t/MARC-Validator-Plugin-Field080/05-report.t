@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field080;
-use Test::More 'tests' => 96;
+use Test::More 'tests' => 110;
 use Test::NoWarnings;
 use Unicode::UTF8 qw(decode_utf8);
 
@@ -270,3 +270,41 @@ is($errors->[0]->errors->[0]->error, "Field 080a has trailing space.",
 	"Get error (Field 080a has trailing space.).");
 is($errors->[0]->errors->[0]->params->{'field_080_a'}, '885-93-343.4 = 393',
 	'Get error parameter (field_080_a => 885-93-343.4 = 393).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field080->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb003501382-missing_opening_parenthesis_in_080a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_080', 'Get name (field_080).');
+$errors = $ret->plugin_errors;
+is($errors->[0]->record_id, 'cnb003501382', 'Get record id (cnb003501382).');
+is($errors->[0]->errors->[0]->error, "Field 080a has missing opening parenthesis '('.",
+	"Get error (Field 080a has missing opening parenthesis '('.).");
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, '086.7)08',
+	'Get error parameter (field_080_a => 086.7)08).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field080->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb001705841-missing_closing_parenthesis_in_080a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_080', 'Get name (field_080).');
+$errors = $ret->plugin_errors;
+is($errors->[0]->record_id, 'cnb001705841', 'Get record id (cnb001705841).');
+is($errors->[0]->errors->[0]->error, "Field 080a has missing closing parenthesis ')'.",
+	"Get error (Field 080a has missing closing parenthesis ')'.).");
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, '(035',
+	'Get error parameter (field_080_a => (035).');
