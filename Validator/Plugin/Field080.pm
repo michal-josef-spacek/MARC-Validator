@@ -77,7 +77,6 @@ sub process {
 					'error' => "Field 080a has missing opening parenthesis '('.",
 					'params' => {
 						'field_080_a' => $field_080a,
-						'character' => $udc_error_params{'character'},
 					},
 				);
 			} elsif ($udc_error eq "Missing closing parenthesis ')'.") {
@@ -85,7 +84,6 @@ sub process {
 					'error' => "Field 080a has missing closing parenthesis ')'.",
 					'params' => {
 						'field_080_a' => $field_080a,
-						'character' => $udc_error_params{'character'},
 					},
 				);
 			} elsif ($udc_error eq "Extra closing parenthesis ')'.") {
@@ -93,7 +91,6 @@ sub process {
 					'error' => "Field 080a has extra closing parenthesis ')'.",
 					'params' => {
 						'field_080_a' => $field_080a,
-						'character' => $udc_error_params{'character'},
 					},
 				);
 			}
