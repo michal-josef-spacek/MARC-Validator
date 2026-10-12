@@ -4,7 +4,7 @@ use base qw(MARC::Validator::Abstract);
 use strict;
 use warnings;
 
-use Business::UDC 0.09;
+use Business::UDC 0.10;
 use Data::MARC::Validator::Report::Error 0.02;
 use Data::MARC::Validator::Report::Plugin::Errors 0.02;
 
@@ -89,6 +89,13 @@ sub process {
 			} elsif ($udc_error eq "Extra closing parenthesis ')'.") {
 				push @record_errors, Data::MARC::Validator::Report::Error->new(
 					'error' => "Field 080a has extra closing parenthesis ')'.",
+					'params' => {
+						'field_080_a' => $field_080a,
+					},
+				);
+			} elsif ($udc_error eq "Missing closing quotation mark '\"'.") {
+				push @record_errors, Data::MARC::Validator::Report::Error->new(
+					'error' => "Field 080a has missing closing quotation mark '\"'.",
 					'params' => {
 						'field_080_a' => $field_080a,
 					},
