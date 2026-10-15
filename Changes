@@ -1,4 +1,5 @@
 0.24
+ - Add support for extra opening parenthesis in 080a.
  - Add support for missing quotation mark in 080a ("1960/1972).
  - Remove error 'character' parameter from some errors.
 

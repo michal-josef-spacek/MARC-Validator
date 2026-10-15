@@ -100,6 +100,13 @@ sub process {
 						'field_080_a' => $field_080a,
 					},
 				);
+			} elsif ($udc_error eq "Extra opening parenthesis '('.") {
+				push @record_errors, Data::MARC::Validator::Report::Error->new(
+					'error' => "Field 080a has extra opening parenthesis '('.",
+					'params' => {
+						'field_080_a' => $field_080a,
+					},
+				);
 			}
 		}
 	}
