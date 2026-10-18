@@ -39,6 +39,7 @@ sub process {
 					'error' => "Field 080a has name standalone.",
 					'params' => {
 						'field_080_a' => $field_080a,
+						'position' => $udc_error_params{'position'},
 					},
 				);
 			} elsif ($udc_error eq 'Whitespace is not allowed in UDC string.') {
@@ -46,6 +47,7 @@ sub process {
 					'error' => "Field 080a has trailing space.",
 					'params' => {
 						'field_080_a' => $field_080a,
+						'position' => $udc_error_params{'position'},
 					},
 				);
 			} elsif ($udc_error eq 'Bad apostrophe character.') {
@@ -54,6 +56,7 @@ sub process {
 					'params' => {
 						'field_080_a' => $field_080a,
 						'character' => $udc_error_params{'character'},
+						'position' => $udc_error_params{'position'},
 					},
 				);
 			} elsif ($udc_error eq 'Bad quotation mark character.') {
@@ -62,6 +65,7 @@ sub process {
 					'params' => {
 						'field_080_a' => $field_080a,
 						'character' => $udc_error_params{'character'},
+						'position' => $udc_error_params{'position'},
 					},
 				);
 			} elsif ($udc_error eq 'Bad dot character in number.') {
@@ -70,6 +74,7 @@ sub process {
 					'params' => {
 						'field_080_a' => $field_080a,
 						'character' => $udc_error_params{'character'},
+						'position' => $udc_error_params{'position'},
 					},
 				);
 			} elsif ($udc_error eq "Missing opening parenthesis '('.") {
@@ -77,6 +82,7 @@ sub process {
 					'error' => "Field 080a has missing opening parenthesis '('.",
 					'params' => {
 						'field_080_a' => $field_080a,
+						'position' => $udc_error_params{'position'},
 					},
 				);
 			} elsif ($udc_error eq "Missing closing parenthesis ')'.") {
@@ -84,6 +90,7 @@ sub process {
 					'error' => "Field 080a has missing closing parenthesis ')'.",
 					'params' => {
 						'field_080_a' => $field_080a,
+						'position' => $udc_error_params{'position'},
 					},
 				);
 			} elsif ($udc_error eq "Extra closing parenthesis ')'.") {
@@ -91,6 +98,7 @@ sub process {
 					'error' => "Field 080a has extra closing parenthesis ')'.",
 					'params' => {
 						'field_080_a' => $field_080a,
+						'position' => $udc_error_params{'position'},
 					},
 				);
 			} elsif ($udc_error eq "Missing closing quotation mark '\"'.") {
@@ -98,6 +106,7 @@ sub process {
 					'error' => "Field 080a has missing closing quotation mark '\"'.",
 					'params' => {
 						'field_080_a' => $field_080a,
+						'position' => $udc_error_params{'position'},
 					},
 				);
 			} elsif ($udc_error eq "Extra opening parenthesis '('.") {
@@ -105,6 +114,7 @@ sub process {
 					'error' => "Field 080a has extra opening parenthesis '('.",
 					'params' => {
 						'field_080_a' => $field_080a,
+						'position' => $udc_error_params{'position'},
 					},
 				);
 			}
