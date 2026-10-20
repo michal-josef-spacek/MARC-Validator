@@ -1,4 +1,5 @@
 0.25
+ - Add new error for detection of bad hyphen in 080a.
  - Add new error for detection of bad year in time auxiliary.
  - Fix position in one test.
 

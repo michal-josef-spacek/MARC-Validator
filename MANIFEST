@@ -69,6 +69,7 @@ t/data/fake1-incorrect_field_020a.xml
 t/data/fake2-incorrect_leader.xml
 t/data/fake3-missing_field_008.xml
 t/data/fake4-missing_field_040.xml
+t/data/fake5-bad_hyphen_character_in_080a.xml
 t/MARC-Validator-Abstract/01-use.t
 t/MARC-Validator-Abstract/02-version.t
 t/MARC-Validator-Abstract/03-new.t
