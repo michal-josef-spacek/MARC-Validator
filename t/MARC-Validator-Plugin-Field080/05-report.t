@@ -378,8 +378,8 @@ is($errors->[0]->errors->[0]->error, "Field 080a has missing closing quotation m
 	"Get error (Field 080a has missing closing quotation mark '\"'.).");
 is($errors->[0]->errors->[0]->params->{'field_080_a'}, '016:794.1"1960/1972',
 	'Get error parameter (field_080_a => 016:794.1"1960/1972).');
-is($errors->[0]->errors->[0]->params->{'position'}, 9,
-	'Get error parameter (position => 9).');
+is($errors->[0]->errors->[0]->params->{'position'}, 19,
+	'Get error parameter (position => 19).');
 
 # Test.
 $obj = MARC::Validator::Plugin::Field080->new(
