@@ -65,6 +65,7 @@ t/data/cnb003689262-missing_008_programmed_texts-655a.xml
 t/data/cnb003698545-incorrect_field_020a_isbn_formatting.xml
 t/data/cnb003712487-incorrect_field_020a_isbn_formatting.xml
 t/data/cnb003713673-bad_quotation_mark_in_080a.xml
+t/data/cnb003786604-extra_dash_in_080a.xml
 t/data/fake1-incorrect_field_020a.xml
 t/data/fake2-incorrect_leader.xml
 t/data/fake3-missing_field_008.xml
