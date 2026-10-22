@@ -4,7 +4,7 @@ use warnings;
 use File::Object;
 use MARC::File::XML (BinaryEncoding => 'utf8', RecordFormat => 'MARC21');
 use MARC::Validator::Plugin::Field080;
-use Test::More 'tests' => 173;
+use Test::More 'tests' => 181;
 use Test::NoWarnings;
 use Unicode::UTF8 qw(decode_utf8);
 
@@ -464,3 +464,24 @@ is($errors->[0]->errors->[0]->params->{'field_080_a'}, decode_utf8('27--243.37')
 	'Get error parameter (field_080_a => 27--243.37).');
 is($errors->[0]->errors->[0]->params->{'position'}, 3,
 	'Get error parameter (position => 3).');
+
+# Test.
+$obj = MARC::Validator::Plugin::Field080->new(
+	'record_id_def' => '015a',
+);
+$obj->init;
+$marc_record = MARC::File::XML->in($data_dir->file('cnb003070764-extra_dot_in_080a.xml')->s)->next;
+$obj->process($marc_record);
+$ret = $obj->report;
+isa_ok($ret, 'Data::MARC::Validator::Report::Plugin');
+ok(defined $ret->module_name, 'Module name is defined.');
+ok(defined $ret->version, 'Version is defined.');
+is($ret->name, 'field_080', 'Get name (field_080).');
+$errors = $ret->plugin_errors;
+is($errors->[0]->record_id, 'cnb003070764', 'Get record id (cnb003070764).');
+is($errors->[0]->errors->[0]->error, "Field 080a has extra dot character.",
+	"Get error (Field 080a has extra dot character.).");
+is($errors->[0]->errors->[0]->params->{'field_080_a'}, decode_utf8('578.82./.83'),
+	'Get error parameter (field_080_a => 578.82./.83).');
+is($errors->[0]->errors->[0]->params->{'position'}, 6,
+	'Get error parameter (position => 6).');

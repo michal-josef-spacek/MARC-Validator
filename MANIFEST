@@ -53,6 +53,7 @@ t/data/cnb002703924-bad_apostrophe_in_080a.xml
 t/data/cnb002795077-bad_apostrophe_in_080a.xml
 t/data/cnb002880415-bad_apostrophe_in_080a.xml
 t/data/cnb002932107-incorrect_field_020a_isbn_formatting.xml
+t/data/cnb003070764-extra_dot_in_080a.xml
 t/data/cnb003160105-bad_book_material_index-500a.xml
 t/data/cnb003165782-name_is_standalone_in_080a.xml
 t/data/cnb003239939-bad_map_material_index-500a.xml

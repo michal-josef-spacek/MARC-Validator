@@ -141,6 +141,14 @@ sub process {
 						'position' => $udc_error_params{'position'},
 					},
 				);
+			} elsif ($udc_error eq "Extra dot '.'.") {
+				push @record_errors, Data::MARC::Validator::Report::Error->new(
+					'error' => "Field 080a has extra dot character.",
+					'params' => {
+						'field_080_a' => $field_080a,
+						'position' => $udc_error_params{'position'},
+					},
+				);
 			}
 		}
 	}
