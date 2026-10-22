@@ -29,6 +29,7 @@ t/data/cnb000119080-bad_book_material_index-504a.xml
 t/data/cnb000295209-incorrect_field_008_syntax_space.xml
 t/data/cnb000344109-missing_008_illustrations.xml
 t/data/cnb000396346-trailing_space_in_080a.xml
+t/data/cnb000404267-missing_operator_in_080a.xml
 t/data/cnb000425076-bad_quotation_mark_in_080a.xml
 t/data/cnb000452844-trailing_space_in_080a.xml
 t/data/cnb000457509-missing_closing_quotation_mark_in_080a.xml
