@@ -1,3 +1,5 @@
+0.26
+
 0.25 2026-10-25T21:44:29+01:00
  - Add new error for detection of bad hyphen in 080a.
  - Add new error for detection of bad year in time auxiliary.
