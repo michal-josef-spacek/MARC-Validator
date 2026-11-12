@@ -4,7 +4,7 @@ use base qw(MARC::Validator::Abstract);
 use strict;
 use warnings;
 
-use Business::UDC 0.11;
+use Business::UDC 0.12;
 use Data::MARC::Validator::Report::Error 0.02;
 use Data::MARC::Validator::Report::Plugin::Errors 0.02;
 
@@ -152,6 +152,14 @@ sub process {
 			} elsif ($udc_error eq "Missing operator.") {
 				push @record_errors, Data::MARC::Validator::Report::Error->new(
 					'error' => "Field 080a has missing operator.",
+					'params' => {
+						'field_080_a' => $field_080a,
+						'position' => $udc_error_params{'position'},
+					},
+				);
+			} elsif ($udc_error eq "Invalid geographic auxiliary notation.") {
+				push @record_errors, Data::MARC::Validator::Report::Error->new(
+					'error' => "Field 080a has invalid auxiliary notation.",
 					'params' => {
 						'field_080_a' => $field_080a,
 						'position' => $udc_error_params{'position'},
